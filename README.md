@@ -91,7 +91,7 @@ bun run preview
 
 ## 🐳 Running with Docker
 
-Trimly provides a multi-stage Docker build with Nginx pre-configured with COOP/COEP headers required for WebAssembly execution.
+### Using Docker CLI
 
 ```bash
 # Build Docker image
@@ -101,7 +101,27 @@ docker build -t trimly .
 docker run -p 8080:80 trimly
 ```
 
-Then open `http://localhost:8080` in your browser.
+### Using Docker Compose
+
+Create or use the existing `docker-compose.yml`:
+
+```yaml
+services:
+  web:
+    image: registry.devteddy.my.id/trimly:latest
+    container_name: trimly
+    ports:
+      - "3000:80"
+    restart: unless-stopped
+```
+
+Run with Docker Compose:
+
+```bash
+docker compose up -d
+```
+
+Then open `http://localhost:3000` in your browser.
 
 ---
 

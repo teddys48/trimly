@@ -1,0 +1,7 @@
+services:
+  web:
+    image: registry.devteddy.my.id/trimly:latest
+    container_name: trimly
+    ports:
+      - "3000:80"
+    restart: unless-stopped
